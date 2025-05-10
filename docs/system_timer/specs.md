@@ -79,8 +79,8 @@ The 'wb_system_timer' is a 64-bit monotonic timer with a Wishbone B4 interface. 
 | 0x14   | RESERVED     | RESERVED                                    | R    |  
 | 0x18   | RESERVED     | RESERVED                                    | R    |  
 | 0x1C   | RESERVED     | RESERVED                                    | R    |
-| 0x20   | COUNT_LO     | Lower 32-bit of counter                     | R/W  |
-| 0x24   | COUNT_HI     | Upper 32-btis of counter                    | R/W  | 
+| 0x20   | COUNT_LO     | Lower 32-bit of counter                     | R  |
+| 0x24   | COUNT_HI     | Upper 32-btis of counter                    | R  | 
 | 0x28   | COMP_LO      | Lower 32-bits of compare value              | R/W  | 
 | 0x2C   | COMP_HI      | Upper 32-bits of compare value              | R/W  | 
 | 0x30   | PERIOD_LO    | Lower 32-bits of period value               | R/W  | 
