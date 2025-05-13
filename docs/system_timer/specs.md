@@ -2,7 +2,7 @@
 
 **IP Name:** wb_system_timer
 
-**Version:** 1.0
+**Version:** 1.1
 
 **Author:** Michael B.
 
@@ -93,10 +93,12 @@ R/WC: Read/Write 1 to bit to clear
 | ---- | ---------------- | ----------- | ----------- | --------------------------------------------------------------------- |
 | 0    | `ENABLE`         | R/W         | 0           | Enables the 64-bit counter when set.                                  |
 | 1    | `COMPARE_ENABLE` | R/W         | 0           | Enables interrupt generation on counter/compare match.                |
-| 2    | `INT_PENDING`    | R           | 0           | Set when counter matches compare; cleared by writing `INT_CLEAR = 1`. |
-| 3    | `INT_CLEAR`      | W           | -           | Write `1` to clear the interrupt pending flag (`INT_PENDING`).        |
-| 4    | `AUTO_RELOAD`    | R/W         | 0           | Enables automatic compare reload using the `PERIOD` value.            |
-| 31:5 | `RESERVED`       | -           | 0           | Reserved for future use; must be written as zero.                     |
+| 2    | `LOAD_COMPARE`   | W           | 0           | Strobe to load compare value from `COMP_LO` and `COMP_HI`             |
+| 3    | `INT_PENDING`    | R           | 0           | Set when counter matches compare; cleared by writing `INT_CLEAR = 1`. |
+| 4    | `INT_CLEAR`      | W           | -           | Write `1` to clear the interrupt pending flag (`INT_PENDING`).        |
+| 5    | `AUTO_RELOAD`    | R/W         | 0           | Enables automatic compare reload using the `PERIOD` value.            |
+| 6    | `LOAD_PERIOD`    | R/W         | 0           | Strobe to load period value from `PERIOD_LO` and `PERIOD_HI`            |
+| 31:7 | `RESERVED`       | -           | 0           | Reserved for future use; must be written as zero.                     |
 
 ### 5.2 COUNT, COMP, PERIOD
 | Bit  | Field Name | Access Type | Reset Value              | Description                                                                        |
@@ -123,6 +125,8 @@ Test Coverage will include the following
 | Version | Date             | Changes                   |
 |---------|----------------  |---------------------------|
 | 1.0     | May 10, 2025   | Initial draft             |
+| 1.0     | May 10, 2025   | Add `LOAD_PERIOD` bit to control register             |
+
 
 ## 10. References
 
